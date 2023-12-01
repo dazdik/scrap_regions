@@ -10,7 +10,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-geoip_token = os.getenv("GEOIP_TOKEN")
 # Настройка логирования
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s"
