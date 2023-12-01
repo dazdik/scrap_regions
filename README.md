@@ -9,8 +9,8 @@
 #### Установка
 1. **Клонирование репозитория:**
    ```bash
-   git clone [url-репозитория]
-   cd [директория-репозитория]
+   git clone https://github.com/dazdik/scrap_regions
+   cd scrap_regions
    ```
 
 2. **Настройка окружения:**
