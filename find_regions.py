@@ -2,7 +2,7 @@ import json
 import logging
 import os
 import re
-from typing import List, Optional, Tuple
+from typing import Optional
 
 import requests
 from dotenv import load_dotenv
@@ -73,7 +73,7 @@ def get_timezone_by_ip(session: requests.Session, ip_address: str) -> Optional[s
     return None
 
 
-def get_regions(session: requests.Session) -> List[Tuple[str, str]]:
+def get_regions(session: requests.Session) -> list[tuple[str, str]]:
     try:
         gist_url = "https://gist.github.com/salkar/19df1918ee2aed6669e2"
         response = session.get(gist_url)
@@ -84,13 +84,11 @@ def get_regions(session: requests.Session) -> List[Tuple[str, str]]:
         return []
 
 
-def filter_regions_by_timezone(
-    regions: List[Tuple[str, str]], time_zone: str
-) -> List[str]:
+def filter_regions_by_timezone(regions: list[tuple[str, str]], time_zone: str) -> list[str]:
     return [region for region, timezone in regions if timezone == time_zone]
 
 
-def write_to_file(filename: str, time_zone: str, regions: List[str]) -> None:
+def write_to_file(filename: str, time_zone: str, regions: list[str]) -> None:
     with open(filename, "w") as file:
         file.write(f"Таймзона: {time_zone}\n")
         file.write("Регионы:\n")
